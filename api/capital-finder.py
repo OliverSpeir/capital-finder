@@ -14,7 +14,7 @@ class handler(BaseHTTPRequestHandler):
             r = requests.get(url + dic["capital"])
             data = r.json()
             country = data[0]["name"]["common"]
-            message = str(country)
+            message = country
             # results = []
             # for capital_data in data:
             #     result = capital_data["name"][0]["common"][0]
@@ -25,7 +25,7 @@ class handler(BaseHTTPRequestHandler):
             r = requests.get(url + dic["country"])
             data = r.json()
             capital = data[0]["capital"][0]
-            message = str(capital)
+            message = capital
             # results = []
             # for country_data in data:
             #     result = country_data["capital"][0]
