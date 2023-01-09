@@ -16,7 +16,7 @@ class handler(BaseHTTPRequestHandler):
             country = data[0]["name"]["common"]
             message = str(country)
 
-        if "country" in dic:
+        elif "country" in dic:
             url = "https://restcountries.com/v3.1/name/"
             r = requests.get(url + dic["country"])
             data = r.json()
