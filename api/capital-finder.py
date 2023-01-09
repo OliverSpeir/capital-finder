@@ -14,24 +14,17 @@ class handler(BaseHTTPRequestHandler):
             r = requests.get(url + dic["capital"])
             data = r.json()
             country = data[0]["name"]["common"]
-            message = country
-            # results = []
-            # for capital_data in data:
-            #     result = capital_data["name"][0]["common"][0]
-            #     results.append(result)
+            message = str(country)
 
         if "country" in dic:
             url = "https://restcountries.com/v3.1/name/"
             r = requests.get(url + dic["country"])
             data = r.json()
             capital = data[0]["capital"][0]
-            message = capital
-            # results = []
-            # for country_data in data:
-            #     result = country_data["capital"][0]
-            #     results.append(result)
+            message = str(capital)
 
-        message = "welcome to the capital/country endpoint"
+        else:
+            message = "welcome to the capital/country endpoint"
 
         self.send_response(200)
         self.send_header('Content-type','text/plain')
