@@ -13,19 +13,19 @@ class handler(BaseHTTPRequestHandler):
             url = "https://restcountries.com/v3.1/capital/"
             r = requests.get(url + dic["capital"])
             data = r.json()
-            #country = data[0]["name"]["common"]
-            country = []
-            for x in data:
-                country = x[0]["name"]["common"]
-                country.append(country)
-            message = str(country)
+            country = data[0]["name"]["common"]
+            # country = []
+            # for x in data:
+            #     country = x[0]["name"]["common"]
+            #     country.append(country)
+            message = f"{dic['capital']} is the capital of {str(country)}."
 
         elif "country" in dic:
             url = "https://restcountries.com/v3.1/name/"
             r = requests.get(url + dic["country"])
             data = r.json()
             capital = data[0]["capital"][0]
-            message = str(capital)
+            message = f"The capital of {dic['country']} is {str(capital)}."
 
         else:
             message = "welcome to the capital/country endpoint"
