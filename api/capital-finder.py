@@ -13,11 +13,7 @@ class handler(BaseHTTPRequestHandler):
             url = "https://restcountries.com/v3.1/capital/"
             r = requests.get(url + dic["capital"])
             data = r.json()
-            country = data[0]["name"]["common"][0]
-            # country = []
-            # for x in data:
-            #     country = x[0]["name"]["common"]
-            #     country.append(country)
+            country = data[0]["name"]["common"]
             message = f"{dic['capital']} is the capital of {str(country)}."
 
         elif "country" in dic:
@@ -31,7 +27,7 @@ class handler(BaseHTTPRequestHandler):
             message = "welcome to the capital/country endpoint"
 
         self.send_response(200)
-        self.send_header('Content-type','text/plain')
+        self.send_header('Content-type', 'text/plain')
         self.end_headers()
 
         self.wfile.write(message.encode())
