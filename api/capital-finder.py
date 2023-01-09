@@ -13,7 +13,7 @@ class handler(BaseHTTPRequestHandler):
             url = "https://restcountries.com/v3.1/capital/"
             r = requests.get(url + dic["capital"])
             data = r.json()
-            country = data[0]["name"]["common"]
+            country = data[0]["name"]["common"][0]
             # country = []
             # for x in data:
             #     country = x[0]["name"]["common"]
