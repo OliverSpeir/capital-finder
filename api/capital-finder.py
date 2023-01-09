@@ -13,23 +13,26 @@ class handler(BaseHTTPRequestHandler):
             url = "https://restcountries.com/v3.1/capital/"
             r = requests.get(url + dic["capital"])
             data = r.json()
-            results = []
-            for capital_data in data:
-                result = capital_data["name"][0]["common"][0]
-                results.append(result)
-            message = str(results)
+            country = data[0]["name"]["common"]
+            message = str(country)
+            # results = []
+            # for capital_data in data:
+            #     result = capital_data["name"][0]["common"][0]
+            #     results.append(result)
 
         if "country" in dic:
             url = "https://restcountries.com/v3.1/name/"
             r = requests.get(url + dic["country"])
             data = r.json()
-            results = []
-            for capital_data in data:
-                result = capital_data["capital"][0]
-                results.append(result)
-            message = str(results)
+            capital = data[0]["capital"][0]
+            message = str(capital)
+            # results = []
+            # for country_data in data:
+            #     result = country_data["capital"][0]
+            #     results.append(result)
 
         message = "welcome to the capital/country endpoint"
+
         self.send_response(200)
         self.send_header('Content-type','text/plain')
         self.end_headers()
