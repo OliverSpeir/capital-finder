@@ -73,7 +73,7 @@ class handler(BaseHTTPRequestHandler):
             message = "Actually " + message1 + " and " + message2 + currency1 + " " + currency2
 
             if input_country == actual_country and input_capital == actual_capital:
-                message = (f"Correct, {input_country}\'s capital is {input_capital} and {input_country}\'s currency is {currency1}")
+                message = (f"Correct, {input_country}\'s capital is {input_capital} and{currency1}")
 
         if len(dic) == 0:
 
