@@ -57,6 +57,7 @@ class handler(BaseHTTPRequestHandler):
             if "capital" in dic:
                 message, currency, unused_val, unused_val = do_capital(dic)
                 message = message + currency
+                
             elif "country" in dic:
                 message, currency, unused_val, unused_val = do_country(dic)
                 message = message + currency
